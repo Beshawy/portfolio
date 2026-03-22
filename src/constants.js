@@ -32,6 +32,7 @@ import netlifyLogo from './assets/tech_logo/netlify.png';
 import vercelLogo from './assets/tech_logo/vercel.png';
 import postgreLogo from './assets/tech_logo/postgre.png';
 import csharpLogo from './assets/tech_logo/csharp.png';
+import nestLogo from './assets/tech_logo/nest.png';
 
 // Education Section Logo's
 import glaLogo from './assets/education_logo/download.png';
@@ -45,7 +46,9 @@ import movierecLogo from './assets/work_logo/ecommerce.png';
 import taskremLogo from './assets/work_logo/adlpress.png';
 import npmLogo from './assets/work_logo/movie.png';
 import webverLogo from './assets/work_logo/Mealify.png';
-
+import carRentalApi from './assets/work_logo/carApi.png'
+import restaurant from './assets/work_logo/rest.png'
+import blogApp from './assets/work_logo/blogApp.png'
 
 export const SkillsInfo = [
   {
@@ -54,11 +57,12 @@ export const SkillsInfo = [
       { name: 'HTML', logo: htmlLogo },
       { name: 'CSS', logo: cssLogo },
       { name: '', logo: javascriptLogo },
-      { name: 'React JS', logo: reactjsLogo },
+      { name: 'React', logo: reactjsLogo },
       { name: 'Redux', logo: reduxLogo },
       { name: 'Next JS', logo: nextjsLogo },
       { name: '', logo: tailwindcssLogo },
       { name: '', logo: bootstrapLogo },
+      { name : '', logo : typescriptLogo}
     ],
   },
   {
@@ -68,6 +72,8 @@ export const SkillsInfo = [
       { name: 'Express', logo: expressjsLogo },
       { name: 'MySQL', logo: mysqlLogo },
       { name: '', logo: mongodbLogo },
+      { name: '', logo:  postgreLogo},
+      { name: '', logo: nestLogo },
     ],
   },
   {
@@ -130,8 +136,18 @@ export const SkillsInfo = [
       github: "https://github.com/Beshawy/BeWithMe-project",
       webapp: "",
     },
-    {
+        {
       id: 1,
+      title: "CAR RENTAL PLATFORM API",
+      description:
+        "RESTful API for a car rental platform enabling user authentication, vehicle management, real-time booking, secure payments, and admin oversight with comprehensive booking history and analytics.",
+      image: carRentalApi,
+      tags: ["node.js", "express","webHooks", "JWT", "MongoDB", "RESTful API", "paypal" ,"postman"],
+      github: "https://github.com/Beshawy/cars-rental-api",
+      webapp: "https://app.swaggerhub.com/apis-docs/todigital/cars-rental-platform-api/1.0.0?view=uiDocs",
+    },
+    {
+      id: 2,
       title: "API E-commerce",
       description:
         "Secure RESTful API powering user and data management.",
@@ -141,7 +157,7 @@ export const SkillsInfo = [
       webapp: "",
     },
     {
-      id: 2,
+      id: 3,
       title: "E-COMMERCE Website",
       description:
         "Modern React interface for seamless online shopping.",
@@ -151,7 +167,7 @@ export const SkillsInfo = [
       webapp: "",
     },
     {
-      id: 3,
+      id: 4,
       title: "E-commerce electronic",
       description:
         "Modern React interface for seamless online shopping.",
@@ -161,7 +177,7 @@ export const SkillsInfo = [
       webapp: "",
     },
     {
-      id: 4,
+      id: 5,
       title: "Movie Recommendation ",
       description:
         "A movie recommendation front-end suggesting films based on user preferences",
@@ -171,13 +187,33 @@ export const SkillsInfo = [
       webapp: "",
     },
     {
-      id: 5,
+      id: 6,
       title: "Mealify",
       description:
         " responsive restaurant front-end showcasing menu and online .",
       image: webverLogo,
       tags: ["HTML", "CSS", "JavaScript"],
       github: "",
+      webapp: "",
+    },
+    {
+      id: 7,
+      title: "BLOG APP",
+      description:
+        "A blog application built with Node.js, Express, and MongoDB, allowing users to create, read, update, and delete blog posts.",
+      image: blogApp,
+      tags: ["node js", "express", "mongoDB", "JavaScript"],
+      github: "https://github.com/Beshawy/BLOG-APP-API",
+      webapp: "",
+    },
+    {
+      id: 8,
+      title: "restaurant api",
+      description:
+        "A restaurant API built with Node.js, Express, and MongoDB, allowing users to create, read, update, and delete restaurant data.",
+      image: restaurant,
+      tags: ["node js", "express", "mongoDB", "JavaScript"],
+      github: "https://github.com/Beshawy/resturant-api",
       webapp: "",
     },
   ];  

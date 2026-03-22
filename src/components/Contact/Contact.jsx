@@ -1,9 +1,63 @@
-import { useRef } from "react";
-import { ToastContainer } from "react-toastify";
+import { useRef, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import emailjs from "@emailjs/browser";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const form = useRef();
+  const [isSending, setIsSending] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast.error("إعدادات الإرسال ناقصة، ظبّط بيانات EmailJS في ملف .env 👇", {
+        position: "top-center",
+        autoClose: 4000,
+      });
+      console.error("EmailJS config missing:", {
+        serviceId,
+        templateId,
+        publicKey,
+      });
+      return;
+    }
+
+    setIsSending(true);
+
+    emailjs
+      .sendForm(
+        serviceId,
+        templateId,
+        form.current,
+        publicKey
+      )
+      .then(
+        () => {
+          toast.success("تم إرسال الرسالة بنجاح ✅", {
+            position: "top-center",
+            autoClose: 3000,
+          });
+          form.current.reset();
+        },
+        (error) => {
+          console.error("EmailJS send error:", error);
+          toast.error("حصل مشكلة أثناء الإرسال، جرّب تاني ❌", {
+            position: "top-center",
+            autoClose: 3000,
+          });
+        }
+      )
+      .finally(() => {
+        setIsSending(false);
+      });
+  };
 
   return (
     <section
@@ -25,10 +79,14 @@ const Contact = () => {
       {/* Contact Form */}
       <div className="mt-8 w-full max-w-md bg-[#0d081f] p-6 rounded-lg shadow-lg border border-gray-700">
         <h3 className="text-xl font-semibold text-white text-center">
-          Connect With Me <span className="ml-1">🚀</span>
+          Connect With Me <span className="ml-1"></span>
         </h3>
 
-        <form ref={form} onSubmit={(e) => e.preventDefault()} className="mt-4 flex flex-col space-y-4">
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className="mt-4 flex flex-col space-y-4"
+        >
           <input
             type="email"
             name="user_email"
@@ -61,10 +119,14 @@ const Contact = () => {
           {/* Send Button */}
           <button
             type="submit"
-            disabled
-            className="w-full bg-gradient-to-r from-green-600 to-pink-500 py-3 text-white font-semibold rounded-md hover:opacity-90 transition opacity-50 cursor-allowed"
+            disabled={isSending}
+            className={`w-full bg-gradient-to-r from-green-600 to-pink-500 py-3 text-white font-semibold rounded-md transition ${
+              isSending
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:opacity-90 cursor-pointer"
+            }`}
           >
-            Send
+            {isSending ? "Sending..." : "Send"}
           </button>
         </form>
       </div>
