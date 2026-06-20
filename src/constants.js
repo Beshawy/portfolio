@@ -49,6 +49,7 @@ import webverLogo from './assets/work_logo/Mealify.png';
 import carRentalApi from './assets/work_logo/carApi.png'
 import restaurant from './assets/work_logo/rest.png'
 import blogApp from './assets/work_logo/blogApp.png'
+import sooqAlsayarat from './assets/work_logo/sooqAlsayarat.png' 
 
 export const SkillsInfo = [
   {
@@ -126,6 +127,15 @@ export const SkillsInfo = [
   ];
   
   export const projects = [
+    {
+      id: 0,
+      title: "SOOQ ALSAYARAT",
+      description:"A comprehensive car marketplace platform that allows users to discover, list, and manage vehicles while facilitating seamless communication between buyers and sellers.",
+      image: sooqAlsayarat,
+      tags: ["Node.js", "Express", "postgreSql", "typeScript", "RESTful API" , "webSocket" , "socket.io" , "prisma" , "redis" , "push notifications"],
+      github: "",
+      webapp: ["https://sooqalsayarat.net/" , "https://apps.apple.com/eg/app/sooq-alsayarat/id6775942566" , "https://play.google.com/store/apps/details?id=com.tolba.soqalsayart"],
+    },
     {
       id: 0,
       title: "BE WITH ME",

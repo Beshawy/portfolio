@@ -67,47 +67,47 @@ const Work = () => {
       {/* Modal Container */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
-          <div className="bg-gray-900 rounded-xl shadow-2xl lg:w-full w-[90%] max-w-3xl overflow-hidden relative">
-            <div className="flex justify-end p-4">
+          <div className="bg-gray-900 rounded-xl shadow-2xl w-full sm:w-[90%] md:w-[80%] max-w-3xl max-h-[90vh] overflow-y-auto relative scrollbar-hide">
+            <div className="sticky top-0 bg-gray-900/95 backdrop-blur flex justify-end p-4 z-10">
               <button
                 onClick={handleCloseModal}
-                className="text-white text-3xl font-bold hover:text-green-500"
+                className="text-white text-3xl font-bold hover:text-green-500 transition-colors leading-none"
               >
                 &times;
               </button>
             </div>
 
-            <div className="flex flex-col">
-              <div className="w-full flex justify-center bg-gray-900 px-4">
+            <div className="flex flex-col px-4 pb-6 sm:px-8 sm:pb-8">
+              <div className="w-full flex justify-center mb-6">
                 <img
                   src={selectedProject.image}
                   alt={selectedProject.title}
-                  className="lg:w-full w-[95%] object-contain rounded-xl shadow-2xl"
+                  className="w-full h-48 sm:h-64 md:h-80 object-cover rounded-xl shadow-lg"
                 />
               </div>
-              <div className="lg:p-8 p-6">
-                <h3 className="lg:text-3xl font-bold text-white mb-4 text-md">
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
                   {selectedProject.title}
                 </h3>
-                <p className="text-gray-400 mb-6 lg:text-base text-xs">
+                <p className="text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">
                   {selectedProject.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {selectedProject.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="bg-[#251f38] text-xs font-semibold text-green-500 rounded-full px-2 py-1"
+                      className="bg-[#251f38] text-xs sm:text-sm font-semibold text-green-500 rounded-full px-3 py-1"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-4 sm:flex-row flex-col w-full">
                   <a
                     href={selectedProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-1/2 bg-gray-800 hover:bg-green-800 text-gray-400 lg:px-6 lg:py-2 px-2 py-1 rounded-xl lg:text-xl text-sm font-semibold text-center"
+                    className="w-full sm:w-1/2 bg-gray-800 hover:bg-green-800 text-gray-300 hover:text-white px-6 py-3 rounded-xl text-sm sm:text-lg font-semibold text-center transition-colors"
                   >
                     View Code
                   </a>
@@ -115,7 +115,7 @@ const Work = () => {
                     href={selectedProject.webapp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-1/2 bg-green-600 hover:bg-green-800 text-white lg:px-6 lg:py-2 px-2 py-1 rounded-xl lg:text-xl text-sm font-semibold text-center"
+                    className="w-full sm:w-1/2 bg-green-600 hover:bg-green-500 text-white px-6 py-3 rounded-xl text-sm sm:text-lg font-semibold text-center transition-colors"
                   >
                     View Live
                   </a>
